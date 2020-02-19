@@ -6,6 +6,8 @@ Date : 2017-09-10
 Email: inrgihc@126.com
 ```
 
+基于开源的phantomjs工具实现的网页渲染抓取与截图服务组件。
+
 ## 一、服务启动
 
 ### 1、查看phantomjs的版本信息
