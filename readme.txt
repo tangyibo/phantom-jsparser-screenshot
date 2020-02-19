@@ -1,27 +1,43 @@
-             <<JS解析与页面截图服务组件>>
-======================
+# JS解析与页面截图服务组件
+
+```
 Author: tang
 Date : 2017-09-10
-Email: inrgihc@126.COM
-======================
-一、服务启动
- 1、查看phantomjs的版本信息
+Email: inrgihc@126.com
+```
+
+## 一、服务启动
+
+### 1、查看phantomjs的版本信息
+
+```
  ./phantomjs -v
   2.1.1
- 2、启动组件
+```
+
+### 2、启动组件
+
+```
  cd phantomjs-fetcher
  ./phantomjs crawler_fetcher.js 12345
+```
 
-二、使用说明
- 1、接口调用
+## 二、使用说明
+
+### 1、接口调用
+
+```
  curl -XPOST "http://127.0.0.1:12345" -d
 '{"url":"http://www.xupu.gov.cn/","load_images":true,"make_screen":true,"headers":{"User-Agent":"Mozilla/5.0
 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)
 Chrome/58.0.3029.110 Safari/537.36"},"timeout":120}'
+```
 
 此时会返回页面抓取的HTML及header等信息，并在当前目录的snapshots目录下生成网页截图图片
 
-2、请求参数说明
+### 2、请求参数说明
+
+```
 --------------------------------------------------------------------------
 | 参数名称     | 说明                          |     示例                |
 --------------------------------------------------------------------------
@@ -37,8 +53,11 @@ Chrome/58.0.3029.110 Safari/537.36"},"timeout":120}'
 --------------------------------------------------------------------------
 | timeout      | 请求超时的时间                | 单位为：秒。默认为120秒 |
 --------------------------------------------------------------------------
-3、返回的结果
+```
 
+### 3、返回的结果
+
+```
 {
   "orig_url": "http://www.testurl.cn/",
   "status_code": 200,
@@ -75,8 +94,12 @@ margin-top:20px\">如有需要，请联系我们</div>\n\n\n\n\n</body></html>",
   "js_script_result": null,
   "snapshot": "snapshots/www_testurl_cn_2017-8-30_17-15-16-387.jpg"
 }
+```
 
-三、Phantomjs 调试方法
+## 三、Phantomjs 调试方法
+
+### 1、Phantomjs命令
+```
   Phantomjs命令行： phantomjs [options] somescript.js [arg1 [arg2 [...]]]
   关于调试的[options]：
      --remote-debugger-port  开启调试模式并监听制定端口
@@ -84,7 +107,11 @@ margin-top:20px\">如有需要，请联系我们</div>\n\n\n\n\n</body></html>",
   例如：
     在crawler_fetcher.js脚本的开头添加：
     debugger;//放在开头  或者任意位置（当断点）
+```
 
+### 2、Phantomjs调试过程
+
+```
     =============调试过程======================================
     (1) 调试方式启动脚本
 　　　./phantomjs --remote-debugger-port=9000 crawler_fetcher.js
@@ -94,3 +121,5 @@ margin-top:20px\">如有需要，请联系我们</div>\n\n\n\n\n</body></html>",
           __run()  回车
     (4) 根据调试情况修改JS脚本代码
     ============================================================
+```
+
